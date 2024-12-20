@@ -1,0 +1,292 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Mario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://img/background.png" type="Texture" id=3]
+[ext_resource path="res://Goombas.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Box.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1296, 31.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 168, 6 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 72, 2.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 45.2664, 3.40775 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 168, 24.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32, 189.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 7.75, 72.5 )
+
+[node name="Main" type="Node"]
+
+[node name="Mario" parent="." instance=ExtResource( 1 )]
+position = Vector2( 125, 526 )
+
+[node name="Camera2D" type="Camera2D" parent="Mario"]
+position = Vector2( 156, -172 )
+current = true
+zoom = Vector2( 0.7, 0.7 )
+limit_left = 0
+limit_top = 175
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Mario/Camera2D"]
+
+[node name="Label" type="Label" parent="Mario/Camera2D/CanvasLayer"]
+margin_left = 15.0
+margin_top = 196.0
+margin_right = 64.0
+margin_bottom = 210.0
+text = "COINS: "
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 883, 323 )
+scale = Vector2( 1.8, 1.8 )
+z_index = -1
+texture = ExtResource( 3 )
+offset = Vector2( -235, -75.5556 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 1801, 323 )
+scale = Vector2( 1.8, 1.8 )
+z_index = -1
+texture = ExtResource( 3 )
+offset = Vector2( -235, -75.5556 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 2719, 323 )
+scale = Vector2( 1.8, 1.8 )
+z_index = -1
+texture = ExtResource( 3 )
+offset = Vector2( -235, -75.5556 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 3637, 323 )
+scale = Vector2( 1.8, 1.8 )
+z_index = -1
+texture = ExtResource( 3 )
+offset = Vector2( -235, -75.5556 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Posicion Inicial" type="Position2D" parent="."]
+position = Vector2( 123, 526 )
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 88.1 )
+
+[node name="Walls1" type="StaticBody2D" parent="."]
+position = Vector2( 6, 543 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls1"]
+position = Vector2( 1290, 25.5 )
+z_index = 1
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Walls1"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1290.5, 26 )
+scale = Vector2( 40.4844, 1 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="Walls2" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Walls2"]
+position = Vector2( 648, 494 )
+scale = Vector2( 5.25, 0.15625 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls2"]
+position = Vector2( 648, 494 )
+shape = SubResource( 2 )
+
+[node name="Walls3" type="StaticBody2D" parent="."]
+position = Vector2( 976, 504 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Walls3"]
+position = Vector2( 40, -29 )
+scale = Vector2( 2.25, 0.09375 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls3"]
+position = Vector2( 40, -29.5 )
+shape = SubResource( 3 )
+
+[node name="Walls4" type="StaticBody2D" parent="."]
+position = Vector2( 1477, 462 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Walls4"]
+position = Vector2( 29.7452, 11.3649 )
+rotation = -0.764454
+scale = Vector2( 1.42509, 0.10029 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls4"]
+position = Vector2( 29.3613, 11.4582 )
+rotation = -0.787143
+shape = SubResource( 4 )
+
+[node name="Walls5" type="StaticBody2D" parent="."]
+position = Vector2( 2288, 520 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Walls5"]
+position = Vector2( 135.5, 0 )
+scale = Vector2( 5.23438, 1 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls5"]
+position = Vector2( 136, -7.5 )
+shape = SubResource( 5 )
+
+[node name="Walls6" type="StaticBody2D" parent="."]
+position = Vector2( -32, 513 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls6"]
+position = Vector2( 0, -157.5 )
+shape = SubResource( 6 )
+
+[node name="Goomba" parent="." instance=ExtResource( 4 )]
+position = Vector2( 506, 475 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 545, 475 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 581, 474 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 616, 474 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 647, 474 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Box" parent="." instance=ExtResource( 7 )]
+position = Vector2( 857, 480 )
+scale = Vector2( 0.184, 0.184 )
+
+[node name="Box2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 889, 480 )
+scale = Vector2( 0.184, 0.184 )
+
+[node name="Box3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1128, 496 )
+scale = Vector2( 0.184, 0.184 )
+
+[node name="Box4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1145, 496 )
+scale = Vector2( 0.184, 0.184 )
+
+[node name="Box5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1497, 400 )
+scale = Vector2( 0.184, 0.184 )
+
+[node name="Box6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 188, 499 )
+scale = Vector2( 0.184, 0.184 )
+
+[node name="Coin" parent="." instance=ExtResource( 5 )]
+position = Vector2( 279, 492 )
+scale = Vector2( 0.04, 0.04 )
+
+[node name="Coin2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 292, 478 )
+scale = Vector2( 0.04, 0.04 )
+
+[node name="Coin3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 305, 491 )
+scale = Vector2( 0.04, 0.04 )
+
+[node name="Walls7" type="StaticBody2D" parent="."]
+position = Vector2( 2849, 537 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls7"]
+position = Vector2( -24.75, -40.5 )
+shape = SubResource( 7 )
+
+[node name="Goomba6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1773, 524 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1893, 521 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1866, 521 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1839, 522 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1807, 522 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba11" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2320, 472 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba12" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2418, 468 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba13" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2387, 469 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Goomba14" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2351, 470 )
+scale = Vector2( 0.25, 0.25 )
